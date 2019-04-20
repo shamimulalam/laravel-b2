@@ -2,4 +2,8 @@ This is first line
 
 This is second line
 
+<<<<<<< HEAD
 This is 3rd line (text added from master)
+=======
+This is 3rd line (Text from branch 2)
+>>>>>>> branch2
