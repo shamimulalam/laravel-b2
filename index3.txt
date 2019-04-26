@@ -1,3 +1,0 @@
-This is index 3 for remote repo...
-
-This is new line

@@ -1,5 +1,0 @@
-This is first line
-
-This is second line
-
-This is 3rd line (Text from branch 2) (text added from master)
