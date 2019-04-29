@@ -8,9 +8,8 @@ use \A\Human;
 use \Bad\Human as HumanB;
 
 
-$male = new Human();
-$male->index();
+/*$male = new Human();
+$male->index();*/
 
 
-$male = new HumanB();
-$male->index();
+

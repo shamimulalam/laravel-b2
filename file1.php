@@ -2,7 +2,7 @@
 namespace A;
 class Human{
 
-    public function index()
+    static public function index()
     {
         echo 'A namespace';
     }
