@@ -11,22 +11,39 @@ class BlogController extends Controller
 {
     public function index()
     {
-//        Blog::create(['title'=>'This is from ORM1','user_id'=>1,'details'=>'Details form ORM']);
-//        Blog::create(['title'=>'This is from ORM2','user_id'=>2,'details'=>'Details form ORM']);
-//        Blog::create(['title'=>'This is from ORM3','user_id'=>1,'details'=>'Details form ORM']);
-//        Blog::create(['title'=>'This is from ORM4','user_id'=>1,'details'=>'Details form ORM']);
+        $data['title'] = 'List of blogs';
+        $data['blogs'] = Blog::all();
+        return view('blog/index', $data);
+    }
 
+    public function create()
+    {
+        $data['title'] = 'Create new blog';
+        return view('blog/create', $data);
+    }
 
-        $blog = new Blog();
-//        $blog = $blog->where('id',1);
-        $blog = $blog->with('user')->get();
-//        dd($blog);
-        $user= User::with('blogs')->get();
+    public function store(Request $request)
+    {
+        Blog::create(['title' => $request->title, 'details' => $request->details, 'user_id' => 1]);
+        return redirect()->to('blogs');
+    }
 
-        dd($user);
-        $blog = new Blog();
-        $data['blog'] = $blog->blog();
-        $data['page_title'] = 'This is blog page';
-        return view('blog',$data);
+    public function edit($id)
+    {
+        $data['title'] = 'Edit Blog';
+        $data['blog'] = Blog::where('id', $id)->first();
+        return view('blog/edit', $data);
+    }
+
+    public function update(Request $request,$id){
+
+        Blog::where('id',$id)->update(['title' => $request->title, 'details' => $request->details, 'user_id' => 1]);
+        return redirect()->to('blogs');
+    }
+    public function destroy($id)
+    {
+        Blog::where('id',$id)->delete();
+        return redirect()->to('blogs');
+
     }
 }
