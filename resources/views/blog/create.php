@@ -13,7 +13,7 @@
     <div class="col-md-6">
         <h1><?php echo $title; ?></h1>
 
-        <form method="post" action="<?php echo url('blogs');?>">
+        <form method="post" action="<?php echo route('blog.store');?>">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <input required class="form-control" type="text" name="title" placeholder="Blog Title">
             <br>

@@ -13,7 +13,7 @@
     <div class="col-md-6">
         <h1><?php echo $title; ?></h1>
 
-        <form method="post" action="<?php echo url('blogs/'.$blog->id);?>">
+        <form method="post" action="<?php echo route('blog.update',$blog->id);?>">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <input type="hidden" name="_method" value="PUT">
             <input required value="<?php echo $blog->title; ?>" class="form-control" type="text" name="title" placeholder="Blog Title">

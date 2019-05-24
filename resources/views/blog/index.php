@@ -11,7 +11,7 @@
 <body>
 <div class="row">
     <div class="col-md-6">
-        <a class="btn btn-info" href="<?php echo url('blog/create') ?>">Add new blog</a>
+        <a class="btn btn-info" href="<?php echo route('blog.create') ?>">Add new blog</a>
         <table class="table table-bordered">
             <tr>
                 <th>Id</th>
@@ -25,8 +25,8 @@
                     <td><?php echo $blog->title; ?></td>
                     <td><?php echo $blog->details; ?></td>
                     <td>
-                        <a class="btn btn-info" href="<?php echo url('blog/edit/'.$blog->id); ?>">Edit</a>
-                        <form action="<?php echo url('blogs/'.$blog->id); ?>" method="post">
+                        <a class="btn btn-info" href="<?php echo route('blog.edit',$blog->id); ?>">Edit</a>
+                        <form action="<?php echo route('blog.destroy',$blog->id); ?>" method="post">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <input type="hidden" name="_method" value="DELETE">
                             <button onclick="return confirm('Are you confirm to delete this blog')" class="btn btn-danger" type="submit">Delete</button>

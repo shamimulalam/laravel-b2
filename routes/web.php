@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('blogs','BlogController@index');
+/*Route::get('blog','BlogController@index');
 Route::get('blog/create','BlogController@create');
 Route::post('blogs','BlogController@store');
-Route::get('blog/edit/{id}','BlogController@edit');
+Route::get('blog/edit/{id}','BlogController@edit')->name('blog.edit');
 Route::put('blogs/{id}','BlogController@update');
-Route::delete('blogs/{id}','BlogController@destroy');
+Route::delete('blogs/{id}','BlogController@destroy');*/
+
+Route::resource('blog','BlogController');
